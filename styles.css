@@ -1,0 +1,29 @@
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* opcional: empilha em telas menores */
+  gap: 20px;
+}
+
+.video, .chat {
+  flex: 0 0 350px;
+  max-width: 350px;
+}
+
+/* força o iframe do Minnit a ser pequeno, estilo mobile */
+.minnit-embed-iframe {
+  width: 320px !important;
+  height: 500px !important;
+  max-width: 100% !important;
+  border: none;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
