@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alternar vídeos TikTok (blockquote)</title>
+</head>
+<body>
+
+<h2>Vídeo TikTok com botão para alternar</h2>
+
+<div id="videoContainer">
+  <!-- aqui entra o primeiro vídeo -->
+</div>
+
+<br>
+
+<button onclick="trocarVideo()">Próximo vídeo</button>
+
+<br><br>
+
+<a 
+  href="https://wa.me/+5584919844821?text=Gostaria%20de%20divulgar%20meu%20canal%20no%20tiktok" 
+  target="_blank" 
+  style="display:inline-block; padding:10px 20px; background-color:#25D366; color:white; text-decoration:none; border-radius:5px; font-size:16px;">
+Divulgar meu perfil
+</a>
+<script src="https://minnit.chat/js/embed.js?c=1752216300" defer></script><span style="display: none;" class="minnit-chat-sembed" data-chatname="https://organizations.minnit.chat/183301292674806/c/Main?embed" data-style="width:90%; height:500px; max-height:90vh;" data-version="1.52">Chat</span><p class="powered-by-minnit"><a href="https://minnit.chat" target="_blank">Get your own free chatroom with Minnit Chat</a></p>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<script>
+const videos = [
+  {
+    id: "7526314677521927429",
+    url: "https://www.tiktok.com/@morandonasruas/video/7526314677521927429"
+  },
+  {
+    id: "7526183973043686712",
+    url: "https://www.tiktok.com/@morandonasruas/video/7526183973043686712"
+  },
+  {
+    id: "7523218475855154488",
+    url: "https://www.tiktok.com/@morandonasruas/video/7523218475855154488"
+  },
+  {
+    id: "7526332241111305477",
+    url: "https://www.tiktok.com/@ju.wss_/video/7526332241111305477"
+  }
+];
+
+// função para embaralhar o array
+videos.sort(() => Math.random() - 0.5);
+
+let index = 0;
+
+function renderVideo(video) {
+  const container = document.getElementById("videoContainer");
+  container.innerHTML = `
+  <blockquote class="tiktok-embed"
+    cite="${video.url}"
+    data-video-id="${video.id}"
+    data-embed-from="oembed"
+    style="max-width: 605px; min-width: 325px;">
+    <section>
+      <a target="_blank" title="@morandonasruas"
+         href="https://www.tiktok.com/@morandonasruas?refer=embed">
+        @morandonasruas
+      </a>
+    </section>
+  </blockquote>
+  `;
+  if (window.tiktokEmbedLoaded) {
+    window.tiktokEmbedLoaded = false;
+  }
+  const script = document.createElement("script");
+  script.src = "https://www.tiktok.com/embed.js";
+  script.async = true;
+  document.body.appendChild(script);
+}
+
+function trocarVideo() {
+  index = (index + 1) % videos.length;
+  renderVideo(videos[index]);
+}
+
+renderVideo(videos[index]);
+</script>
+
+</body>
+</html>
