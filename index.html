@@ -4,135 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Divulga Tok</title>
+<link rel="stylesheet" href="styles.css">
 
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
-}
-
-h2, h3 {
-  font-family: 'TikTok Sans', Arial, sans-serif;
-}
-
-h2 {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 24px;
-  color: #222;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.video, .chat, .texto {
-  flex: 0 0 350px;
-  max-width: 350px;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 14px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background .3s ease;
-}
-
-button:hover {
-  background: #0056b3;
-}
-
-a.whatsapp-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 14px;
-  transition: background .3s ease;
-}
-
-a.whatsapp-btn:hover {
-  background-color: #1ebe5d;
-}
-
-.chat h3, .texto h3 {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-/* iframe do Minnit */
-.minnit-embed-iframe {
-  width: 320px !important;
-  height: 500px !important;
-  border: none;
-  border-radius: 4px;
-}
-
-.texto p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* responsividade */
-@media (max-width: 800px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .video, .chat, .texto {
-    max-width: 90%;
-  }
-}
-</style>
 </head>
 <body>
 
-<h2>🎬 DivulgaTok seu divulgador de videos do tiktok</h2>
+<h2>🎬 DivulgaTok seu divulgador de vídeos do TikTok</h2>
 
 <div class="container">
   <!-- vídeo -->
   <div class="video">
-    <button onclick="trocarVideo()">Próximo vídeo</button>
+    <a href="javascript:trocarVideo()" class="botao-proximo">
+      <span class="bar"></span>
+      <span class="icon-right">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </span>
+      <span class="icon-left">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </span>
+      <span class="text">Próximo Vídeo</span>
+    </a>
     <div id="videoContainer"></div>
-  
   </div>
 
   <!-- texto -->
@@ -141,10 +37,10 @@ a.whatsapp-btn:hover {
     <p>
           🚫 Não é permitido xingar ou ofender outros usuários no chat.<br><br>
           📲 Quem quiser ter o canal divulgado em vídeo pode falar diretamente
-          no WhatsApp clicando no botão abaixo para combinar a divulgação.
+          no Instagram clicando no botão abaixo para combinar a divulgação.
     </p>
      <a 
-      href="https://wa.me/5584991844821?text=Gostaria%20de%20divulgar%20meu%20perfil%20no%20tiktok" 
+      href="https://linktr.ee/morandonasruas" 
       target="_blank" 
       class="whatsapp-btn">
       📲 Divulgar meu perfil
@@ -169,54 +65,43 @@ a.whatsapp-btn:hover {
 
 <script>
 const videos = [
-  {
-    id: "7526314677521927429",
-    url: "https://www.tiktok.com/@morandonasruas/video/7526314677521927429"
-  },
-  {
-    id: "7526183973043686712",
-    url: "https://www.tiktok.com/@morandonasruas/video/7526183973043686712"
-  },
-  {
-    id: "7523218475855154488",
-    url: "https://www.tiktok.com/@morandonasruas/video/7523218475855154488"
-  },
-  {
-    id: "7528648494375111941",
-    url: "https://www.tiktok.com/@lizx.macedo/video/7528648494375111941"
-  },
-  {
-    id: "7528469858284014904",
-    url: "https://www.tiktok.com/@harupazff/video/7528469858284014904"
-  },
-  {
-    id: "7527706538065022214",
-    url: "https://www.tiktok.com/@supermurilo01/video/7527706538065022214"
-  },
-  {
-    id: "7528066000961523000",
-    url: "https://www.tiktok.com/@rosafurtadolopes/video/7528066000961523000"
-  },
-  {
-    id: "7526564248797924614",
-    url: "https://www.tiktok.com/@dudaniniz/video/7526564248797924614"
-  },
-  {
-    id: "7528552108673551622",
-    url: "https://www.tiktok.com/@eusoucajuu/video/7528552108673551622"
-  },
-  {
-    id: "7528230611375426872",
-    url: "https://www.tiktok.com/@sermota/video/7528230611375426872"
-  },
- {
-    id: "7528408333825477894",
-    url: "https://www.tiktok.com/@eusoubarone/video/7528408333825477894"
-  },  
-  {
-    id: "7526332241111305477",
-    url: "https://www.tiktok.com/@ju.wss_/video/7526332241111305477"
-  }
+  { id: "7526314677521927429", url: "https://www.tiktok.com/@morandonasruas/video/7526314677521927429" },
+  { id: "7526183973043686712", url: "https://www.tiktok.com/@morandonasruas/video/7526183973043686712" },
+  { id: "7523218475855154488", url: "https://www.tiktok.com/@morandonasruas/video/7523218475855154488" },
+  { id: "7528648494375111941", url: "https://www.tiktok.com/@lizx.macedo/video/7528648494375111941" },
+  { id: "7528469858284014904", url: "https://www.tiktok.com/@harupazff/video/7528469858284014904" },
+  { id: "7527706538065022214", url: "https://www.tiktok.com/@supermurilo01/video/7527706538065022214" },
+  { id: "7528066000961523000", url: "https://www.tiktok.com/@rosafurtadolopes/video/7528066000961523000" },
+  { id: "7526564248797924614", url: "https://www.tiktok.com/@dudaniniz/video/7526564248797924614" },
+  { id: "7528552108673551622", url: "https://www.tiktok.com/@eusoucajuu/video/7528552108673551622" },
+  { id: "7528230611375426872", url: "https://www.tiktok.com/@sermota/video/7528230611375426872" },
+  { id: "7528408333825477894", url: "https://www.tiktok.com/@eusoubarone/video/7528408333825477894" },  
+  { id: "7526332241111305477", url: "https://www.tiktok.com/@ju.wss_/video/7526332241111305477" },
+
+  // 👇 novos que você enviou
+  { id: "7553685606094720268", url: "https://www.tiktok.com/@morandonasruas/video/7553685606094720268" },
+  { id: "7553649967571668280", url: "https://www.tiktok.com/@morandonasruas/video/7553649967571668280" },
+  { id: "7550851144461946117", url: "https://www.tiktok.com/@morandonasruas/video/7550851144461946117" },
+  { id: "7552315060908035339", url: "https://www.tiktok.com/@morandonasruas/video/7552315060908035339" },
+  { id: "7549956719103708421", url: "https://www.tiktok.com/@morandonasruas/video/7549956719103708421" },
+  { id: "7549563914749562118", url: "https://www.tiktok.com/@morandonasruas/video/7549563914749562118" },
+  { id: "7548790406041931014", url: "https://www.tiktok.com/@morandonasruas/video/7548790406041931014" },
+  { id: "7544758780232256773", url: "https://www.tiktok.com/@morandonasruas/video/7544758780232256773" },
+  { id: "7540007801381260550", url: "https://www.tiktok.com/@morandonasruas/video/7540007801381260550" },
+  { id: "7550867780698983736", url: "https://www.tiktok.com/@felca/video/7550867780698983736" },
+  { id: "7553765650968235320", url: "https://www.tiktok.com/@lizx.macedo/video/7553765650968235320" },
+  { id: "7553681972724288779", url: "https://www.tiktok.com/@lizx.macedo/video/7553681972724288779" },
+  { id: "7553213437342518540", url: "https://www.tiktok.com/@lizx.macedo/video/7553213437342518540" },
+  { id: "7552978905590713656", url: "https://www.tiktok.com/@toria.maria/video/7552978905590713656" },
+  { id: "7552570707385847096", url: "https://www.tiktok.com/@toria.maria/video/7552570707385847096" },
+  { id: "7552281635627011339", url: "https://www.tiktok.com/@toria.maria/video/7552281635627011339" },
+  { id: "7553327774983802143", url: "https://www.tiktok.com/@mrbeast/video/7553327774983802143" },
+  { id: "7551907319324364062", url: "https://www.tiktok.com/@mrbeast/video/7551907319324364062" },
+  { id: "7537351756468997407", url: "https://www.tiktok.com/@mrbeast/video/7537351756468997407" },
+  { id: "7496559989570407711", url: "https://www.tiktok.com/@mrbeast/video/7496559989570407711" },
+  { id: "7513981662414310686", url: "https://www.tiktok.com/@mrbeast/video/7513981662414310686" },
+  { id: "7455775431849938218", url: "https://www.tiktok.com/@mrbeast/video/7455775431849938218" },
+  { id: "7451658706145594667", url: "https://www.tiktok.com/@mrbeast/video/7451658706145594667" }
 ];
 
 // embaralha

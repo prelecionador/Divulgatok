@@ -1,29 +1,165 @@
-  font-family: Arial, sans-serif;
-  margin: 20px;
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
 }
+
+h2, h3 {
+  font-family: 'TikTok Sans', Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+  color: #222;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap; /* opcional: empilha em telas menores */
   gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.video, .chat {
+.video, .chat, .texto {
   flex: 0 0 350px;
   max-width: 350px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* força o iframe do Minnit a ser pequeno, estilo mobile */
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* botão estilizado */
+a.botao-proximo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+  margin-top: 10px;
+  padding: 0.75rem 3rem 0.75rem 1rem;
+  overflow: hidden;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+a.botao-proximo:hover {
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
+  background-color: #4F46E5;
+}
+a.botao-proximo .bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background: #555;
+  transition: height 0.2s ease-in-out;
+  z-index: -1;
+}
+a.botao-proximo:hover .bar {
+  height: 100%;
+}
+a.botao-proximo .icon-right, a.botao-proximo .icon-left {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-out;
+}
+a.botao-proximo .icon-right {
+  right: 0.5rem;
+}
+a.botao-proximo .icon-left {
+  left: 0.5rem;
+  transform: translate(-3rem, -50%);
+}
+a.botao-proximo:hover .icon-left {
+  transform: translate(0, -50%);
+}
+a.botao-proximo:hover .icon-right {
+  transform: translate(3rem, -50%);
+}
+a.botao-proximo svg {
+  width: 20px;
+  height: 20px;
+  stroke: #4ADE80;
+}
+a.botao-proximo .text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s ease-in-out;
+}
+a.botao-proximo:hover .text {
+  color: #fff;
+}
+
+a.whatsapp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background .3s ease;
+}
+
+a.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+}
+
+.chat h3, .texto h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* iframe do Minnit */
 .minnit-embed-iframe {
   width: 320px !important;
   height: 500px !important;
-  max-width: 100% !important;
   border: none;
+  border-radius: 4px;
 }
 
-button {
-  margin-top: 10px;
-  padding: 8px 16px;
+.texto p {
   font-size: 14px;
+  line-height: 1.5;
 }
+
+/* responsividade */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video, .chat, .texto {
+    max-width: 90%;
+  }
